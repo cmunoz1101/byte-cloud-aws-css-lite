@@ -49,6 +49,11 @@ variable "enable_nat_gateway" {
 // **************************************************************
 // *                           RDS                              *
 // **************************************************************
+variable "rds_create_cluster" {
+  type    = bool
+  default = false
+}
+
 variable "rds_master_username" {
   type    = string
   default = "root"
@@ -113,8 +118,8 @@ variable "rds_scaling_configuration" {
   })
   default = { //Mapa de atributos anidados con propiedades de escala. Solo es válido cuando engine_mode se establece en serverless
     auto_pause               = true,
-    min_capacity             = 2,
-    max_capacity             = 2,
+    min_capacity             = 1,
+    max_capacity             = 1,
     seconds_until_auto_pause = 300,
     timeout_action           = "ForceApplyCapacityChange"
   }

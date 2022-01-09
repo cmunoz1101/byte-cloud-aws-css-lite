@@ -1,5 +1,7 @@
 module "rds_sg" {
 
+  create = var.rds_create_cluster == true ? true : false
+
   source = "terraform-aws-modules/security-group/aws"
 
   name        = format("%s-%s-rds-sg", var.product, var.environment)

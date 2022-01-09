@@ -1,5 +1,7 @@
 module "aurora_mysql" {
 
+  create_cluster = var.rds_create_cluster
+
   depends_on = [module.rds_sg]
 
   source = "terraform-aws-modules/rds-aurora/aws"
